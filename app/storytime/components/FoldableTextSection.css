@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  padding-left: 0.5em;
+}
+
+.line::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.line::before {
+  background: linear-gradient(
+    to right,
+    transparent 4px,
+    #e4e4e4 4px,
+    #e4e4e4 6px,
+    transparent 6px
+  );
+}
+
+.line:hover::before {
+  background: linear-gradient(
+    to right,
+    transparent 4px,
+    #434343 4px,
+    #434343 6px,
+    transparent 6px
+  );
+}
+
+.dark .line::before {
+  background: linear-gradient(
+    to right,
+    transparent 4px,
+    #404040 4px,
+    #303030 6px,
+    transparent 6px
+  );
+}
+
+.dark .line:hover::before {
+  background: linear-gradient(
+    to right,
+    transparent 4px,
+    #acacac 4px,
+    #acacac 6px,
+    transparent 6px
+  );
+}
