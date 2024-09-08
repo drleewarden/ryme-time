@@ -4,7 +4,7 @@ import { visit } from 'unist-util-visit';
 import './MarkdownBlock.css';
 
 // import SyntaxHighlighter from 'react-syntax-highlighter';
-// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import CopyButton from './CopyButton';
 import { Root } from 'hast';
 import gfm from 'remark-gfm';
@@ -13,10 +13,10 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import { UserContext } from '@/context/UserContext';
-// import {
-//   coldarkDark,
-//   oneLight
-// } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {
+  coldarkDark,
+  oneLight
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface ChatBlockProps {
   markdown: string;
@@ -31,8 +31,8 @@ function rehypeInlineCodeProperty() {
         const isInline =
           node.position && node.position.start.line === node.position.end.line;
         node.properties.dataInline = isInline;
-        // console.log('Code element:', node);
-        // console.log('Is inline:', isInline);
+        console.log('Code element:', node);
+        console.log('Is inline:', isInline);
       }
     });
   };
@@ -78,16 +78,16 @@ const MarkdownBlock: React.FC<ChatBlockProps> = ({
           <CopyButton text={children} />
         </div>
         <div className="overflow-y-auto">
-          {/* <SyntaxHighlighter
+          <SyntaxHighlighter
             language={language}
             style={userSettings.theme === 'dark' ? coldarkDark : oneLight}
             customStyle={{ margin: '0' }}
           >
             {value}
-          </SyntaxHighlighter> */}
-          {/* <code {...props} className={className}>
-                        {children}
-                    </code>*/}
+          </SyntaxHighlighter>
+          <code {...props} className={className}>
+            {children}
+          </code>
         </div>
       </div>
     );
